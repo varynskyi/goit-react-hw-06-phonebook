@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
-import toast from 'react-hot-toast';
+// import toast from 'react-hot-toast';
 import actions from './contact-actions';
 
 const initialState = [
@@ -18,19 +18,18 @@ const items = createReducer(initialState, {
 
     const variable =
       doubleContact && doubleContact.name.length === payload.name.length;
-
     if (variable) {
-      toast.error(`${payload.name} is already in contacts`);
+      // toast.error(`${payload.name} is already in contacts`);
       return [...state];
     } else {
-      toast.success(`${payload.name} add to Contacts`);
+      // toast.success(`${payload.name} add to Contacts`);
       return [payload, ...state];
     }
   },
 
   [actions.deleteContact]: (state, { payload }) => {
-    console.log(payload.name);
-    toast.success(`${payload.name} delete!`);
+    // console.log(payload.name);
+    // toast.success(`${payload.name} delete!`);
     return state.filter(contact => contact.id !== payload.contactId);
   },
 });
